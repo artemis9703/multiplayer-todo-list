@@ -1,6 +1,4 @@
-const express = require('express');
 const app = express();
-const PORT = 3000;
 
 fetch('/messages', {
     method: 'POST',
@@ -61,8 +59,4 @@ app.get('/messages', async (req, res) => {
         console.error('Error reading messages:', err);
         res.status(500).json({ error: 'Error reading messages' });
     }
-});
-
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
 });
