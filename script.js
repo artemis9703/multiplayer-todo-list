@@ -56,7 +56,7 @@ document.getElementById('item-form').addEventListener('submit', function (event)
     //hiiii 
     const xssPattern = /[<>]/;
 
-    if (xssPattern.text(item)) {
+    if (xssPattern.test(item)) {
         alert('your item contains illegal characters')
         return;
     }
@@ -67,7 +67,7 @@ document.getElementById('item-form').addEventListener('submit', function (event)
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringyify({ item, nickname }),
+            body: JSON.stringify({ item, nickname }),
         })
             .then(response => response.json())
             .then(() => {
